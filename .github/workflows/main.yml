@@ -1,11 +1,9 @@
 name: Update Filter Lists
 
 on:
-  schedule:
-    - cron: "0 17 1,15 * *"
   push:
     branches:
-      - main
+      - phuchienngo-github-action
   workflow_dispatch:
 
 concurrency:
@@ -17,6 +15,8 @@ env:
 
 jobs:
   cgps:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -64,6 +64,3 @@ jobs:
           curl "${{ env.PING_URL }}"
         env:
           PING_URL: ${{ secrets.PING_URL }}
-
-      - name: Keep workflow alive
-        uses: gautamkrishnar/keepalive-workflow@v1
