@@ -5,7 +5,7 @@ on:
     - cron: "0 17 1,15 * *"
   push:
     branches:
-      - phuchienngo-github-action
+      - main
   workflow_dispatch:
 
 concurrency:
